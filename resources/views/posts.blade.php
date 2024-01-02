@@ -1,4 +1,4 @@
-<x-layout xmlns:a="http://www.w3.org/1999/html">
+<x-layout >
     @foreach($posts as $post)
         <article>
             <h1>
