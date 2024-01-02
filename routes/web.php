@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\models\Category;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,10 @@ use App\models\Category;
 
 Route::get('/', function(){
     return view('posts', [
-        'posts' => Post::all()
+//        'posts' => Post::all()
+
+        // eager loading
+        'posts' => Post::with('category')->get()
     ]);
 });
 
