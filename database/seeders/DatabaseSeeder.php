@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Factories\PostFactory;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
@@ -21,37 +22,49 @@ class DatabaseSeeder extends Seeder
         Post::truncate();
         Category::truncate();
 
-         $user = User::factory()->create();
+        $user = User::factory()->create([
+            'name'=> 'John Carter',
 
-         $personal = Category::create([
-             'name' => 'Personal',
-             'slug' => 'Personal'
-         ]);
-        $family = Category::create([
-            'name' => 'Family',
-            'slug' => 'Family'
-        ]);
-        $work = Category::create([
-            'name' => 'Work',
-            'slug' => 'Work'
         ]);
 
-        Post::create([
-            'category_id' => $family->id,
-            'user_id' => $user->id,
-            'title' => 'my-family-post',
-            'slug' => 'my-first-post',
-            'excerpt' => 'loorei jkldh aliu pore ijufmn lfkj ',
-            'body' => 'lore rn akj for solemnising odi dok d if the master  am ir edquot'
+        Post::factory(5)->create([
+            'user_id' => $user -> id
+
         ]);
 
-        Post::create([
-            'category_id' => $work->id,
-            'user_id' => $work->id,
-            'title' => 'my work-post',
-            'slug' => 'my-work-post',
-            'excerpt' => 'loorei jkldh aliu pore ijufmn lfkj ',
-            'body' => 'lore rn akj for solemnising odi dok d if the master  am ir edquot'
-        ]);
+
+//
+//         $user = User::factory()->create();
+//
+//         $personal = Category::create([
+//             'name' => 'Personal',
+//             'slug' => 'Personal'
+//         ]);
+//        $family = Category::create([
+//            'name' => 'Family',
+//            'slug' => 'Family'
+//        ]);
+//        $work = Category::create([
+//            'name' => 'Work',
+//            'slug' => 'Work'
+//        ]);
+//
+//        Post::create([
+//            'category_id' => $family->id,
+//            'user_id' => $user->id,
+//            'title' => 'my-family-post',
+//            'slug' => 'my-first-post',
+//            'excerpt' => 'loorei jkldh aliu pore ijufmn lfkj ',
+//            'body' => 'lore rn akj for solemnising odi dok d if the master  am ir edquot'
+//        ]);
+//
+//        Post::create([
+//            'category_id' => $work->id,
+//            'user_id' => $work->id,
+//            'title' => 'my work-post',
+//            'slug' => 'my-work-post',
+//            'excerpt' => 'loorei jkldh aliu pore ijufmn lfkj ',
+//            'body' => 'lore rn akj for solemnising odi dok d if the master  am ir edquot'
+//        ]);
     }
 }

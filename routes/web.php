@@ -21,7 +21,7 @@ Route::get('/', function(){
 //        'posts' => Post::all()
 
         // eager loading
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest()->with('category', 'author')->get()
     ]);
 });
 
@@ -34,6 +34,14 @@ Route::get('/posts/{post:slug}', function(Post $post){
 // route to get all posts which are associated with specific category
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
-        'posts' =>  $category -> posts
+        'posts' =>  $category -> posts->load(['category', 'author'])
+    ]);
+});
+
+
+//route to fetch all post by a author
+Route::get('/authors/{author:username}', function(User $author){
+    return view('post', [
+        'posts' => $author -> posts->load(['category', 'author'])
     ]);
 });
