@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout xmlns:a="http://www.w3.org/1999/html">
     @foreach($posts as $post)
         <article>
             <h1>
@@ -7,6 +7,9 @@
                 </a>
 
             </h1>
+            <p>
+            <a href="/categories/{{ $post->category->slug }}"> {{$post->category->name}} </a>
+            </p>
             <div>
                 {{$post->excerpt}}
             </div>
