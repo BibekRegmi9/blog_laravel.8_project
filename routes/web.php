@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
-use App\models\Category;
+use App\Models\Category;
 use App\Models\User;
 
 /*
@@ -46,3 +46,4 @@ Route::get('/authors/{author:username}', function(User $author){
         'posts' => $author -> posts
     ]);
 });
+
