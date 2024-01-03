@@ -20,7 +20,9 @@ use App\Models\User;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
+
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
 
 // route to get all posts which are associated with specific category
 Route::get('/categories/{category:slug}', function(Category $category){
@@ -30,6 +32,7 @@ Route::get('/categories/{category:slug}', function(Category $category){
         'categories' => Category::all()
     ]);
 })->name('category');
+
 
 
 //route to fetch all post by a author
