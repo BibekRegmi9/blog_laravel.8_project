@@ -12,7 +12,7 @@ class PostController extends Controller
     public function index(){
 
         return view('posts', [
-            'posts' => $this -> getPosts(),
+            'posts' => Post::latest()->filter()->get(),
             'categories' => Category::all()
         ]);
     }
@@ -25,13 +25,15 @@ class PostController extends Controller
     }
 
 
-    public function getPosts(){
-
-        $posts = Post::latest();
-        if(\request('search')){
-            $posts->where('title', 'like', '%' . request('search') . '%')
-                ->orWhere('body',  'like', '%' . request('search') . '%');
-        }
-        return $posts ->get();
-    }
+//    public function getPosts(){
+//
+////        $posts = Post::latest();
+////        if(\request('search')){
+////            $posts->where('title', 'like', '%' . request('search') . '%')
+////                ->orWhere('body',  'like', '%' . request('search') . '%');
+////        }
+////        return $posts ->get();
+//
+//        Post::latest()->filter()->get();
+//    }
 }
