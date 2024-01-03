@@ -36,7 +36,7 @@
                </button>
            </x-slot>
 
-           <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300"> All:  </a>
+           <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300 overflow-auto max-h-52"> All:  </a>
 
            @foreach($categories as $category)
                <a href="/categories/{{$category->slug}}"
