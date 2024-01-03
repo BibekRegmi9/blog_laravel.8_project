@@ -37,9 +37,10 @@
                 <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300"> All:  </a>
 
             @foreach($categories as $category)
-                    <a href="/categories/{{$category->slug}}" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300"> {{ucwords($category->name)}} </a>
-{{--                <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300">Two</a>--}}
-{{--                <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300">Three</a>--}}
+                    <a href="/categories/{{$category->slug}}"
+                       class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300
+                       {{isset($currentCategory) && $currentCategory->id === $category->id ? 'bg-blue-500 text-white' : ''}}
+                       "> {{ucwords($category->name)}} </a>
 
                 @endforeach
             </div>
