@@ -4,10 +4,10 @@
     </h1>
 
     <h2 class="inline-flex mt-2">By John Carter <img src="/images/lary-head.svg"
-                                                       alt="Head of Lary the mascot"></h2>
+                                                       alt="Head of the universe"></h2>
 
     <p class="text-sm mt-14">
-        Another year. Another update. We're refreshing the popular Laravel series with new content.
+        Another year. Another update. We're refreshing the popular Technical series with new content.
         I'm going to keep you guys up to speed with what's going on!
     </p>
 
