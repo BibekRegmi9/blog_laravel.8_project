@@ -29,14 +29,17 @@ Route::get('/', function(){
 
 Route::get('/posts/{post:slug}', function(Post $post){
     return view('post', [
-        'post' => $post
+        'post' => $post,
+        'categories' => Category::all()
     ]);
 });
 
 // route to get all posts which are associated with specific category
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
-        'posts' =>  $category -> posts
+        'posts' =>  $category -> posts,
+        'currentCategory' => $category,
+        'categories' => Category::all()
     ]);
 });
 
