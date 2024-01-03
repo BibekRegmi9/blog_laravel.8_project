@@ -18,11 +18,14 @@ use App\Models\User;
 
 
 Route::get('/', function(){
-    return view('posts', [
-//        'posts' => Post::all()
+    $posts = Post::latest();
 
-        // eager loading
-        'posts' => Post::latest()->get(),
+    if(request('search ')){
+        $posts->where('title', 'like', '%'. request('search') . '%' );
+    }
+
+    return view('posts', [
+        'posts' => $posts->get(),
         'categories' => Category::all()
     ]);
 })->name('home');
