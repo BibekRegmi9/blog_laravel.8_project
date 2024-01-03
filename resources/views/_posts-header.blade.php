@@ -6,10 +6,6 @@
     <h2 class="inline-flex mt-2">By John Carter <img src="/images/lary-head.svg"
                                                        alt="Head of the universe"></h2>
 
-    <p class="text-sm mt-14">
-        Another year. Another update. We're refreshing the popular Technical series with new content.
-        I'm going to keep you guys up to speed with what's going on!
-    </p>
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">
         <!--  Category -->
@@ -19,7 +15,7 @@
        <x-dropdown>
 
            <x-slot name="trigger">
-               <button class="py-2 pl-3 pr-9 text-sm font-semibold w-32 text-left inline-flex">
+               <button class="py-2 pl-3 pr-9 text-sm font-semibold w-32 text-left inline-flex ">
 
                    {{ isset($currentCategory) ? ucwords($currentCategory->name) : 'categories'}}
 
@@ -36,7 +32,7 @@
                </button>
            </x-slot>
 
-           <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300 overflow-auto max-h-52"> All:  </a>
+           <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300 "> All:  </a>
 
            @foreach($categories as $category)
                <a href="/categories/{{$category->slug}}"
