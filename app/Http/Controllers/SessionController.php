@@ -19,6 +19,9 @@ class SessionController extends Controller
         ]);
         //login
         if(auth()->attempt($attribute)){
+            //to prevent session fixation attack(in this attack hacker try to hijack the user session)
+            session()->regenerate();
+
             //redirect with success message
             return redirect('/')->with('success', 'Welcome back!');
         }
