@@ -38,7 +38,8 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 //route to fetch all post by a author
 Route::get('/authors/{author:username}', function(User $author){
     return view('posts', [
-        'posts' => $author -> posts
+        'posts' => $author -> posts,
+
     ]);
 });
 

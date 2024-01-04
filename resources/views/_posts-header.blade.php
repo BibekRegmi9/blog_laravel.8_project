@@ -13,10 +13,6 @@
                     <x-category-dropdown/>
 
 
-
-
-
-
         </div>
 
         <!-- Other Filters -->
