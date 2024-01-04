@@ -60,7 +60,7 @@
 </section>
 
 @if(session() -> has('success'))
-    <div>
+    <div class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-10 right-3 text-sm">
         <p> {{ session('success') }} </p>
     </div>
 @endif
