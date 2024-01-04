@@ -56,6 +56,10 @@
 
                     <button class="border border-gray-400 p-2 w-full bg-blue-500 text-white font-bold" type="submit"> Submit </button>
                 </div>
+
+                @foreach($errors->all() as $error )
+                    <li class="text-red-500 text-xm">{{ $error }}</li>
+                @endforeach
             </form>
         </main>
     </section>
