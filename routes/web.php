@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
@@ -26,6 +27,8 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('/logout', [SessionController::class, 'destroy']);
 
 
 // route to get all posts which are associated with specific category
