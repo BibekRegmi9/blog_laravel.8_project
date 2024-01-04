@@ -13,9 +13,9 @@
             </svg>
         </button>
     </x-slot>
-    <a href="/" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300 "> All:  </a>
+    <a href="/?{{ http_build_query(request()->except('category', 'page')) }}" class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300 "> All:  </a>
     @foreach($categories as $category)
-        <a href="/?category={{$category->slug}}&{{ http_build_query(request()->except('category')) }}"
+        <a href="/?category={{$category->slug}}&{{ http_build_query(request()->except('category', 'page')) }}"
            class="block text-left px-3 text-xm leading-6 hover:bg-gray-300 focus:bg-gray-300
                        {{isset($currentCategory) && $currentCategory->id === $category->id ? 'bg-blue-500 text-white' : ''}}
                        "> {{ucwords($category->name)}} </a>
