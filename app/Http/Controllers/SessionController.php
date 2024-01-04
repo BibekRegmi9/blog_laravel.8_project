@@ -24,7 +24,9 @@ class SessionController extends Controller
         }
 
         // if auth failed
-        return back()->withErrors(['email' => 'Your provided credentials could not be verified.']);
+        return back()
+            ->withInput()
+            ->withErrors(['email' => 'Your provided credentials could not be verified.']);
 
 
     }
