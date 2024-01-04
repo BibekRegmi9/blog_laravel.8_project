@@ -22,7 +22,9 @@ class RegisterController extends Controller
         ]);
 
 //        $attributes['password'] = bcrypt($attributes['password']); //encrypt password from here or from the user model
-        User::create($attributes);
+        $user = User::create($attributes);
+        auth()->login($user);
+
 //        session()->flash('success', 'Your account is created. Now you can LogIn.'); method 1
         return redirect('/')->with('success', 'Your account is created. Now you can LogIn.'); // method : directly flashing through redirect method
     }
