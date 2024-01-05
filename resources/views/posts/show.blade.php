@@ -86,8 +86,9 @@
 
                     @foreach($post->comments as $comment)
 {{--                        @dd($comment)--}}
-                        <x-post-comment :comment = "$comment"/>
+{{--                        <x-post-comment :comment = "$comment"/>--}}
 
+                            <x-post-commentss :comment="$comment"/>
                     @endforeach
 
                 </section>
