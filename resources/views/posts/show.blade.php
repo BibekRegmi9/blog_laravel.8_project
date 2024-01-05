@@ -60,6 +60,7 @@
 
 {{--                comment Section--}}
                 <section class="col-span-8 col-start-5 mt-20 space-y-7" >
+                    <x-panel>
                     <form action="#" method="POST" class="border border-gray-200 p-6 rounded-xl">
                         @csrf
                         <header class="flex items-center">
@@ -74,6 +75,7 @@
                             <button type="submit" class="bg-blue-500 text-white uppercase font-bold text-xs py-2 px-10 rounded-2xl hover:bg-blue-700">Post</button>
                         </div>
                     </form>
+                    </x-panel>
 
                     @foreach($post->comments as $comment)
 {{--                        @dd($comment)--}}
