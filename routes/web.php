@@ -28,7 +28,10 @@ Route::get('/ping', function(){
         'server' => 'us17'
     ]);
 
-    $response = $mailchimp->ping->get();
+    $response = $mailchimp->lists->addListMember('6db64e0a4b', [
+        "email_address" => "1016matrixbibek@gmail.com",
+        "status" => "subscribed"
+    ]);
     dd($response);
 });
 
