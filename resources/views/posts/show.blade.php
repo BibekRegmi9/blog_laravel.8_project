@@ -58,7 +58,10 @@
                     </div>
                 </div>
 
-                <section class="col-span-8 col-start-5 mt-20" >
+                <section class="col-span-8 col-start-5 mt-20 space-y-7" >
+                    <x-post-comment/>
+                    <x-post-comment/>
+                    <x-post-comment/>
                     <x-post-comment/>
 
                 </section>
