@@ -20,7 +20,8 @@ use App\Models\User;
 |
 */
 
-Route::get('/ping', function(){
+Route::post('/newsletter', function(){
+    request()->validate(['email' => 'required|email']);
     $mailchimp = new \MailchimpMarketing\ApiClient();
 
     $mailchimp->setConfig([
@@ -28,11 +29,19 @@ Route::get('/ping', function(){
         'server' => 'us17'
     ]);
 
-    $response = $mailchimp->lists->addListMember('6db64e0a4b', [
-        "email_address" => "1016matrixbibek@gmail.com",
-        "status" => "subscribed"
-    ]);
-    dd($response);
+    try{
+        $response = $mailchimp->lists->addListMember('6db64e0a4b', [
+            "email_address" => request('email'),
+            "status" => "subscribed"
+        ]);
+    }catch (\Exception $e){
+         throw \Illuminate\Validation\ValidationException::withMessages([
+            'email' => 'This email could not be added to the news letter'
+        ]);
+    }
+
+
+    return redirect('/') -> with('success', 'You are subscribed to our newsletter');
 });
 
 Route::get('/', [PostController::class, 'index'])->name('home');
