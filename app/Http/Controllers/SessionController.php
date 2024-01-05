@@ -19,7 +19,7 @@ class SessionController extends Controller
         ]);
         //login
         if(auth()->attempt($attribute)){
-            //to prevent session fixation attack(in this attack hacker try to hijack the user session)
+            //regenerating the session to prevent session fixation attack(in this attack hacker try to hijack the user session)
             session()->regenerate();
 
             //redirect with success message
@@ -28,9 +28,8 @@ class SessionController extends Controller
 
         // if auth failed
         return back()
-            ->withInput()
+            ->withInput() // this will not remove the form data
             ->withErrors(['email' => 'Your provided credentials could not be verified.']);
-
 
     }
 
