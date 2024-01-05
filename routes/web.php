@@ -20,6 +20,17 @@ use App\Models\User;
 |
 */
 
+Route::get('/ping', function(){
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us17'
+    ]);
+
+    $response = $mailchimp->ping->get();
+    dd($response);
+});
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
