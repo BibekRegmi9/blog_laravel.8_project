@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 
 class PostCommentsController extends Controller
 {
-    //
+
 
     public function store(Post $post){
+//        dd($post);
+//        dd(request()->all());
+
         //validation
         request()->validate([
             'body' => 'required'
         ]);
-//         create comment
+//
         $post->comments()->create([
             'user_id' => request()->user()->id,
             'body' => request('body')

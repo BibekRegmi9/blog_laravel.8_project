@@ -60,27 +60,36 @@
 
 {{--                comment Section--}}
                 <section class="col-span-8 col-start-5 mt-20 space-y-7" >
-                    <x-panel>
+                    @auth
                     <form method="POST" action="/posts/{{ $post->slug }}/comments"  class="border border-gray-200 p-6 rounded-xl">
                         @csrf
                         <header class="flex items-center">
-                            <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" alt="avatar image" width="50" height="50" class="rounded-full">
+                            <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" alt="avatar-image" width="50" height="50" class="rounded-full">
 
                             <h2 class="ml-4">Drop a comment.</h2>
                         </header>
                         <div class="mt-6">
                             <textarea name="body" id="" cols="30" rows="5" class="w-full" placeholder="write your comment here..."></textarea>
+                            @error('body')
+                                <span class="text-xs text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="flex justify-end mt-5 border-t border-gray-200 pt-6">
                             <button type="submit" class="bg-blue-500 text-white uppercase font-bold text-xs py-2 px-10 rounded-2xl hover:bg-blue-700">Post</button>
                         </div>
                     </form>
-                    </x-panel>
+                    @else
+                        <p class="font-bold text-color-blue-300">
+                            <a href="/register" class="hover:underline">Register</a> Or <a href="/login" class="hover:underline">Login to comment.</a>
+                        </p>
+                    @endauth
 
                     @foreach($post->comments as $comment)
 {{--                        @dd($comment)--}}
                         <x-post-comment :comment = "$comment"/>
+
                     @endforeach
+
                 </section>
             </article>
         </main>
@@ -90,20 +99,4 @@
     </body>
 
 
-
-
-
-
-
-
-{{--    <article>--}}
-{{--        <h1>{!! $post->title !!}</h1>--}}
-{{--        <p>--}}
-{{--            By: <a href="/authors/{{$post-> author->username}}">{{$post->author->name}}</a> in: <a href="/categories/{{$post->category->slug}}"> {{$post->category->name}} </a>--}}
-{{--        </p>--}}
-{{--        <div>--}}
-{{--            {!! $post->body !!}--}}
-{{--        </div>--}}
-{{--    </article>--}}
-{{--    <a href="/">Go Back</a>--}}
 </x-layout>
