@@ -61,7 +61,7 @@
 {{--                comment Section--}}
                 <section class="col-span-8 col-start-5 mt-20 space-y-7" >
                     <x-panel>
-                    <form action="#" method="POST" class="border border-gray-200 p-6 rounded-xl">
+                    <form method="POST" action="/posts/{{ $post->slug }}/comments"  class="border border-gray-200 p-6 rounded-xl">
                         @csrf
                         <header class="flex items-center">
                             <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" alt="avatar image" width="50" height="50" class="rounded-full">
