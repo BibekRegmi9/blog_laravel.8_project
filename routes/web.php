@@ -40,7 +40,7 @@ use App\Services\Newsletter;
 //    return redirect('/') -> with('success', 'You are subscribed to our newsletter');
 //});
 
-Route::post('/newsletter', [NewsletterController::class]);
+Route::post('/newsletter', NewsletterController::class);
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
