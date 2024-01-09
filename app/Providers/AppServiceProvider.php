@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
         app()->bind(Newsletter::class, function(){
             $client =  (new ApiClient)->setConfig([
                 'apiKey' => config('services.mailchimp.key'),
