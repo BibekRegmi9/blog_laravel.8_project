@@ -1,8 +1,9 @@
 <x-layout>
-    <section class="px-6 py-8 flex">
-        <form action="/admin/posts" method="POST" class=" flex-initial" value="" >
+    <section class="px-6 py-8 ">
+    <div class="max-w-lg mx-auto bg-gray-100 border border-gray-200 p-8 rounded-xl">
+        <form action="/admin/posts" method="POST" >
             @csrf
-
+            <h1 class="mb-3">Publish new post</h1>
             <div class="mb-6 max-w-sm mx-auto">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="title"> Title
 
@@ -77,9 +78,10 @@
 
 
             <div >
-                <button class="border border-gray-400 p-2  bg-blue-500 text-white font-bold  " type="submit"> Publish </button>
+                <button class="border border-gray-400 p-2 ml-8 mt-6 bg-blue-500 text-white font-bold  " type="submit"> Publish </button>
             </div>
 
         </form>
+    </div>
     </section>
 </x-layout>
