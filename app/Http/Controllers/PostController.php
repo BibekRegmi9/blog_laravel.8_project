@@ -28,6 +28,9 @@ class PostController extends Controller
 
 
     public function create(){
+        if (auth() -> guest()){
+            abort(Response::HTTP_FORBIDDEN);
+        }
         return view('posts.create');
     }
 
