@@ -1,15 +1,16 @@
 <x-layout>
     <section class="px-6 py-8 ">
     <div class="max-w-lg mx-auto bg-gray-100 border border-gray-200 p-8 rounded-xl">
+        <h1 class="mb-3 text-lg font-bold ml-7 mb-8">Publish new post</h1>
         <form action="/admin/posts" method="POST" >
             @csrf
-            <h1 class="mb-3">Publish new post</h1>
+
             <div class="mb-6 max-w-sm mx-auto">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="title"> Title
 
                 </label>
 
-                <input class="border border-gray-400 p-2 w-full" type="text" name="title" id="title" value="{{ old('title') }}"  required>
+                <input placeholder="title" class="border border-gray-400 p-2 w-full" type="text" name="title" id="title" value="{{ old('title') }}"  required>
             </div>
 
             <div class="mb-6 max-w-sm mx-auto">
@@ -17,18 +18,33 @@
 
                 </label>
 
-                <input class="border border-gray-400 p-2 w-full" type="text" name="slug" id="slug" value="{{ old('slug') }}" required>
+                <input placeholder="slug" class="border border-gray-400 p-2 w-full" type="text" name="slug" id="slug" value="{{ old('slug') }}" required>
                 @error('slug')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                 @enderror
             </div>
+
+
+
+            <div class="mb-6 max-w-sm mx-auto">
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="thumbnail"> Thumbnail
+
+                </label>
+
+                <input placeholder="slug" class="border border-gray-400 p-2 w-full" type="file" name="thumbnail" id="thumbnail" required>
+                @error('slug')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
 
             <div class="mb-6 max-w-sm mx-auto">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="excerpt"> Excerpt
 
                 </label>
 
-                <textarea class="border border-gray-400 p-2 w-full" type="text" name="excerpt" id="excerpt" required>
+                <textarea  class="border border-gray-400 p-2 w-full" type="text" name="excerpt" id="excerpt" required>
                     {{ old('excerpt') }}
                 </textarea>
                 @error('excerpt')
