@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use MailchimpMarketing\ApiClient;
+
 class Newsletter
 {
 
