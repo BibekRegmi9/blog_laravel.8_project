@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\MailchimpNewsletter;
+use App\Services\Newsletter;
+
 
 class NewsletterController extends Controller
 {
