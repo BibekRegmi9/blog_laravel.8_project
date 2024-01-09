@@ -29,13 +29,10 @@ class PostController extends Controller
 
 
     public function create(){
+        //implementing inside the middleware
 //        if (auth() -> guest()){
 //            abort(Response::HTTP_FORBIDDEN);
 //        }
-
-        if (auth()->user()?->username != 'jonny'){
-            abort(Response::HTTP_FORBIDDEN);
-        }
 
         return view('posts.create');
     }
