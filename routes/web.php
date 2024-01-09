@@ -23,7 +23,7 @@ use App\Services\Newsletter;
 |
 */
 
-Route::post('/newsletter', function(Newsletter $newsletter){
+//Route::post('/newsletter', function(Newsletter $newsletter){
 //    request()->validate(['email' => 'required|email']);
 //
 //
@@ -38,9 +38,9 @@ Route::post('/newsletter', function(Newsletter $newsletter){
 //
 //
 //    return redirect('/') -> with('success', 'You are subscribed to our newsletter');
-});
+//});
 
-Route::get('/newsletter', [NewsletterController::class]);
+Route::post('/newsletter', [NewsletterController::class]);
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
