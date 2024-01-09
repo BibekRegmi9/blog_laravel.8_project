@@ -4,11 +4,13 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 use App\Services\Newsletter;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +23,24 @@ use App\Services\Newsletter;
 |
 */
 
-Route::post('/newsletter', function(){
-    request()->validate(['email' => 'required|email']);
-
-
-    try{
-        $newsletter = new Newsletter();
-        $newsletter -> subscribe(request('email'));
-    }catch (\Exception $e){
-         throw \Illuminate\Validation\ValidationException::withMessages([
-            'email' => 'This email could not be added to the news letter'
-        ]);
-    }
-
-
-    return redirect('/') -> with('success', 'You are subscribed to our newsletter');
+Route::post('/newsletter', function(Newsletter $newsletter){
+//    request()->validate(['email' => 'required|email']);
+//
+//
+//    try{
+//        $newsletter = new Newsletter();
+//        $newsletter -> subscribe(request('email'));
+//    }catch (\Exception $e){
+//         throw \Illuminate\Validation\ValidationException::withMessages([
+//            'email' => 'This email could not be added to the news letter'
+//        ]);
+//    }
+//
+//
+//    return redirect('/') -> with('success', 'You are subscribed to our newsletter');
 });
+
+Route::get('/newsletter', [NewsletterController::class]);
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
