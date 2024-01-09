@@ -38,7 +38,6 @@
             </div>
 
 
-
             <div class="mb-6 max-w-sm mx-auto">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="excerpt"> Excerpt
 
