@@ -9,8 +9,8 @@
         <aside class="w-60 ">
             <h4 class="font-semibold mb-6">Links</h4>
             <ul>
+                <li><a href="/admin/posts" class="{{ request()->is('admin/dashboard') ? 'text-blue-500' : ''}}">All Posts:</a></li>
                 <li><a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : ''}}">New Post</a></li>
-                <li><a href="/admin/dashboard" class="{{ request()->is('admin/dashboard') ? 'text-blue-500' : ''}}">Dashboard</a></li>
                 <li><a href="/" class="{{ request()->is('admin/dashboard') ? 'text-blue-500' : '' }} ">Home</a></li>
             </ul>
         </aside>
@@ -20,6 +20,11 @@
                     {{ $slot }}
                 </x-panel>
         </main>
+
+    </div>
+    </div>
+</section>
+
 
 {{--        <form action="/admin/posts" method="POST" enctype="multipart/form-data">--}}
 {{--            @csrf--}}
@@ -118,6 +123,3 @@
 {{--        </form>--}}
 
 
-
-    </div>
-</section>

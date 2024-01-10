@@ -35,7 +35,7 @@ class PostController extends Controller
 //            abort(Response::HTTP_FORBIDDEN);
 //        }
 
-        return view('posts.create');
+        return view('admin.posts.create');
     }
 
     public function store(){
