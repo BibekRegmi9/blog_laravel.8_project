@@ -1,16 +1,24 @@
 @props(['heading'])
 
-<section class="px-6 py-8 ">
-    <div class="max-w-lg mx-auto bg-gray-100 border border-gray-200 p-8 rounded-xl">
-        <h1 class="mb-3 text-lg font-bold ml-7 mb-8">
+<section class="px-6 mt-8 w-full">
+    <div class="max-w-5xl mx-auto bg-gray-100 border border-gray-200 p-8 rounded-xl">
+        <h1 class="mb-3 text-lg font-bold ml-7 mb-8 border-b">
             {{ $heading }}
         </h1>
+    <div class="flex">
+        <aside class="w-60 ">
+            <h4 class="font-semibold mb-6">Links</h4>
+            <ul>
+                <li><a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }} ">New Post</a></li>
+                <li><a href="/admin/dashboard" class="{{ request()->is('admin/dashboard') ? 'text-blue-500' : '' }} ">Dashboard</a></li>
+            </ul>
+        </aside>
 
-
-        <x-panel>
-            {{ $slot }}
-        </x-panel>
-
+        <main class="flex-1">
+                <x-panel>
+                    {{ $slot }}
+                </x-panel>
+        </main>
 
 {{--        <form action="/admin/posts" method="POST" enctype="multipart/form-data">--}}
 {{--            @csrf--}}

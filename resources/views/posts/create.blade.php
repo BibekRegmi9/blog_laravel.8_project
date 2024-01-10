@@ -2,7 +2,7 @@
 
 
     <x-setting heading="New Post">
-        <form action="/admin/posts" method="POST" enctype="multipart/form-data">
+        <form action="/admin/posts" method="POST" enctype="multipart/form-data" >
             @csrf
 
             <div class="mb-6 max-w-sm mx-auto">
@@ -93,7 +93,7 @@
 
 
             <div >
-                <button class="border border-gray-400 p-2 ml-8 mt-6 bg-blue-500 text-white font-bold  " type="submit"> Publish </button>
+                <button class="border border-gray-400 p-2 mt-6  bg-blue-500 text-white font-bold float-right " type="submit"> Publish </button>
             </div>
 
         </form>
