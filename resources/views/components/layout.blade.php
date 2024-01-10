@@ -31,11 +31,16 @@
                     </x-slot>
                     <x-dropdown-item href="/admin/posts/create" >Dashboard </x-dropdown-item>
                     <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')" >New Post </x-dropdown-item>
+                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" > Logout </x-dropdown-item>
+
+                    <form id="logout-form" method="POST" action="/logout" class="hidden">
+                        @csrf
+                    </form>
                 </x-dropdown>
-                <form method="POST" action="/logout" class="text-xm font-bold text-blue-500 ml-6">
-                    @csrf
-                    <button type="submit">Logout</button>
-                </form>
+{{--                <form method="POST" action="/logout" class="text-xm font-bold text-blue-500 ml-6">--}}
+{{--                    @csrf--}}
+{{--                    <button type="submit">Logout</button>--}}
+{{--                </form>--}}
             @else
                 <a href="/register" class="text-xs font-bold uppercase">Register</a>
                 <a href="/login" class="ml-5 text-xs font-bold uppercase">Login</a>
