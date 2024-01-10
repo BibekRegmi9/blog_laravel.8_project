@@ -1,6 +1,5 @@
 <x-layout>
 
-
     <x-setting heading="New Post">
         <form action="/admin/posts" method="POST" enctype="multipart/form-data" >
             @csrf

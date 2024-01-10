@@ -48,6 +48,7 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 Route::post('/posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
+Route::get('/admin/posts', [AdminPostController::class, 'index'])->middleware('admin');
 Route::get('/admin/posts/create', [PostController::class, 'create'])->middleware('admin');
 Route::post('/admin/posts', [PostController::class, 'store'])->middleware('admin');
 
