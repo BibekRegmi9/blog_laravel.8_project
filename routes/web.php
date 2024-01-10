@@ -5,6 +5,7 @@ use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\AdminPostController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
