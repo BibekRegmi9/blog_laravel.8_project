@@ -2,13 +2,6 @@
 
 
     <x-setting heading="New Post">
-
-    </x-setting>
-
-
-    <section class="px-6 py-8 ">
-    <div class="max-w-lg mx-auto bg-gray-100 border border-gray-200 p-8 rounded-xl">
-        <h1 class="mb-3 text-lg font-bold ml-7 mb-8">Publish new post</h1>
         <form action="/admin/posts" method="POST" enctype="multipart/form-data">
             @csrf
 
@@ -88,7 +81,7 @@
 
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}"
-                        {{ old('category_id') == $category->id ? 'selected' : '' }}
+                            {{ old('category_id') == $category->id ? 'selected' : '' }}
                         >{{ ucwords($category->name) }}</option>
                     @endforeach
 
@@ -104,6 +97,8 @@
             </div>
 
         </form>
-    </div>
-    </section>
+
+    </x-setting>
+
+
 </x-layout>
