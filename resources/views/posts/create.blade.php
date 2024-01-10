@@ -31,7 +31,7 @@
 
                 </label>
 
-                <input placeholder="slug" class="border border-gray-400 p-2 w-full" type="file" name="thumbnail" id="thumbnail" required>
+                <input placeholder="slug" class="border border-gray-400 p-2 w-full" type="file" name="thumbnail" id="thumbnail" >
                 @error('slug')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                 @enderror
