@@ -2,7 +2,7 @@
     <section class="px-6 py-8 ">
     <div class="max-w-lg mx-auto bg-gray-100 border border-gray-200 p-8 rounded-xl">
         <h1 class="mb-3 text-lg font-bold ml-7 mb-8">Publish new post</h1>
-        <form action="/admin/posts" method="POST" >
+        <form action="/admin/posts" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-6 max-w-sm mx-auto">
