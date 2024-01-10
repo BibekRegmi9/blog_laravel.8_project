@@ -29,35 +29,7 @@ class PostController extends Controller
     }
 
 
-    public function create(){
-        //implementing inside the middleware
-//        if (auth() -> guest()){
-//            abort(Response::HTTP_FORBIDDEN);
-//        }
 
-        return view('admin.posts.create');
-    }
-
-    public function store(){
-
-//        $path = request()->file('thumbnail')->store('thumbnails');
-//        dd($path);
-
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'required|image',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
-        $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-
-        Post::create($attributes);
-
-        return redirect('/');
-    }
 
 
 
