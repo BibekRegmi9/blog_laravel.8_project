@@ -34,9 +34,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
     {
-        //
+        //defining gate for admin authorization
         Gate::define('admin', function(User $user){
             return $user -> username === 'jonny';
         });
