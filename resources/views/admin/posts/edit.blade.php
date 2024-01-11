@@ -1,8 +1,11 @@
 <x-layout>
 
     <x-setting :heading="'Edit Post: ' . $post->title">
-        <form action="/admin/posts" method="POST" enctype="multipart/form-data" >
+        <form action="/admin/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data" >
+
+
             @csrf
+            @method('PATCH')
 
             <div class="mb-6 max-w-sm mx-auto">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700 " for="title"> Title
@@ -94,7 +97,7 @@
 
 
             <div >
-                <button class="border border-gray-400 p-2 mt-6  bg-blue-500 text-white font-bold float-right " type="submit"> Publish </button>
+                <button class="border border-gray-400 p-2 mt-6  bg-blue-500 text-white font-bold float-right " type="submit"> Update </button>
             </div>
 
         </form>
