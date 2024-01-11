@@ -45,12 +45,30 @@ class AdminPostController extends Controller
 
         Post::create($attributes);
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Post Added!');
     }
 
     public function edit(Post $post){
         return view('admin.posts.edit',[
             'post' => $post
         ]);
+    }
+
+    public function update(Post $post){
+        $attributes = request()->validate([
+            'title' => 'required',
+            'thumbnail' => 'image',
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
+            'excerpt' => 'required',
+            'body' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')]
+        ]);
+
+        if(isset($attributes['thumbnail'])){
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        }
+
+        $post -> update($attributes);
+        return redirect('/admin/posts')->with('success', 'Post Updated!');
     }
 }
