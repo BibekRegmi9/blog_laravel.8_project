@@ -53,17 +53,16 @@ Route::post('/posts/{post:slug}/comments', [PostCommentsController::class, 'stor
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
+
 Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('/sessions', [SessionController::class, 'store'])->middleware('guest');
-
-
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 
 Route::get('/admin/posts', [AdminPostController::class, 'index'])->middleware('admin');
 Route::get('/admin/posts/create', [AdminPostController::class, 'create'])->middleware('admin');
 Route::post('/admin/posts', [AdminPostController::class, 'store'])->middleware('admin');
-Route::post('/admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
+Route::get('/admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
 
 
 // route to get all posts which are associated with specific category
